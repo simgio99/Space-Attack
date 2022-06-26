@@ -4,7 +4,7 @@ The goal of the challenge is to decode, on five different levels of difficulty, 
 
 # Shared AES parts and first two levels
 At the beginning of the challenge, we dove into understanding what was the meaning behind the shared parts accross all the messages. As the given resources mentioned, we successfully identified the recurring portions of string within the five messages. The decoding of those portions was done through an AES decoder, using select mode ECB (ElectronicCodeBook),Key Size in 128 Bits and Base64 as output.
-The process allowed us to decode the following strings:
+The process allowed us to decode the following strings: \n
 
 JaAbDk1QlerxhNo8pLqS2Q== corresponds to "Start"
 nij8GNMQUx06N++TLehaxw== corresponds to "Stop"
