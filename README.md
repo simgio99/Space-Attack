@@ -1,18 +1,19 @@
 # Space-Attack
-The goal of the challenge is to decode, on five different levels of difficulty, cipher text messages that were given to us by Defence Tech. All the encoded messages share some similarities, like the common AES encoded substrings at the start and at the end.
+The goal of the challenge is to **decode**, on five different levels of difficulty, cipher text messages that were given to us by *Defence Tech*. All the encoded messages share some similarities, like the common AES encoded substrings at the start and at the end.
 
 
 # Shared AES parts and first two levels
-At the beginning of the challenge, we dove into understanding what was the meaning behind the shared parts accross all the messages. As the given resources mentioned, we successfully identified the recurring portions of string within the five messages. The decoding of those portions was done through an AES decoder, using select mode ECB (ElectronicCodeBook),Key Size in 128 Bits and Base64 as output.
+
+At the beginning of the challenge, we dove into understanding what was the meaning behind the shared parts accross all the messages. As the given resources mentioned, we successfully identified the *recurring portions* of string within the five messages. The decoding of those portions was done through an AES decoder, using select mode ECB (ElectronicCodeBook),Key Size in 128 Bits and Base64 as output.
 The process allowed us to decode the following strings:
 <br /> <br />
 JaAbDk1QlerxhNo8pLqS2Q== corresponds to *"Start"*
 <br />
 nij8GNMQUx06N++TLehaxw== corresponds to *"Stop"*
 
-Of course, this evidence implies that the core of the messages is contained between the two sequences. 
+Of course, this evidence implies that the **core** of the messages is contained between the two sequences. 
 
-The first level was pretty straightforward for us, since every member of the team had previously encountered Base64, and we were easily able to recognize it by just looking at the string. Through an online tool for the translation of Base64, we were able to translate the string:
+The first level was pretty straightforward for us, since every member of the team had previously encountered *Base64*, and we were easily able to recognize it by just looking at the string. Through an online tool for the translation of Base64, we were able to translate the string:
 <br />
 
 d2VsY29tZSBldmVyeW9uZSB0byBjeWJlciwgdGhpcyBpcyB0aGUgZmlyc3Qgc3RlcCB0byBsZWFkIHlvdXIgdGVhbSB0byB3aW4
@@ -22,7 +23,7 @@ d2VsY29tZSBldmVyeW9uZSB0byBjeWJlciwgdGhpcyBpcyB0aGUgZmlyc3Qgc3RlcCB0byBsZWFkIHlv
 
 
 The second level went through very smoothly too. A quick glance at the core cipher text gave us the hint that the message was encoded by inverting the initial string.
-We wrote a simple python script that allows us to reverse strings, since the same trick might be useful for the next levels.
+We wrote a simple python script that allows us to reverse strings, since the same trick might be useful for the next levels, in case they contain multiple encoding layers.
 The actual message is a famous line of dialogue exchange during the famous Apollo 13 mission:
 <br />
 *"tlovrednu suB B niam a dah ev'ew,melborp a dah ev'ew"*
@@ -78,7 +79,7 @@ The result had the features of natural language phrasing, but there were some is
 <br />
 *“The priority is to download all the images of Naples that contain ships. The last key AES is password12345678”*
 <br />
-Also in this case, applying the skip-n algorithm directly to plain natural language text gives away a lot of information crucial for the attacker. Even if the key was unknown, the attack could be easily brute-forced by applying shift or skip-n algorithm with random keys and choosing the one with the most plausible output as return.
+Also in this case, applying the *skip-n* algorithm directly to plain natural language text gives away a lot of information crucial for the attacker. Even if the key was unknown, the attack could be easily brute-forced by applying shift or skip-n algorithm with random keys and choosing the one with the most plausible output as return.
 
 # End of the challenge
 Finally, for the fifth level, as the resources suggest, we simply applied an AES decryption algorithm with the key “password12345678” and the final decrypted message is: <br /> <br />
