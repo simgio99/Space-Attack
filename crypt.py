@@ -26,12 +26,12 @@ def mapString(strn, decipherDict):
             finalString += ch
     return finalString
 
-#Function that returns the count of the unique occurences of characters in the given string
+# Function that returns the count of the unique occurences of characters in the given string
 def countUnique(strn):
     uniques = set(strn)
     print("UNIQUE OCCURENCES: " + str(len(uniques)))
 
-#Function that implements a decipher method based on modulo arithmetic with the given string
+# Function that implements a decipher method based on modulo arithmetic with the given string
 # This was our first attempt for level 4
 def modDecipher(strn, modn):
     finalString = ""
@@ -39,7 +39,7 @@ def modDecipher(strn, modn):
         finalString += (chr((65 + (ord(ch) + modn) % 26)))
     return finalString
 
-#Function that implements the skip-n decryption algorithm with the given string and skip-size
+# Function that implements the skip-n decryption algorithm with the given string and skip-size
 # This function allowed us to decrypt level 4
 def skipDecipher(strn, skipSize):
     finalString = ""
