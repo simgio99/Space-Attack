@@ -84,6 +84,6 @@ Also in this case, applying the *skip-n* algorithm directly to plain natural lan
 # End of the challenge
 Finally, for the fifth level, as the resources suggest, we simply applied an AES decryption algorithm with the key “password12345678” and the final decrypted message is: <br /> <br />
 *“Congratulations! This is the last level of encryption”*
-
-
+<br /><br />
+Every decrypted message, as stated at the beginning of the document, will have the Start and Stop marks at its beginning and end.
 
